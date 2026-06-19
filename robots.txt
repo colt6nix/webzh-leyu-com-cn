@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://colt6nix.github.io/webzh-leyu-com-cn/sitemap.xml

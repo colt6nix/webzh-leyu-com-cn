@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>乐鱼体育 · 稳定相伴</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', 'Roboto', system-ui, -apple-system, sans-serif;
+      background: linear-gradient(145deg, #fce4b3 0%, #f8d39a 50%, #f5c27c 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1.2rem;
+      line-height: 1.7;
+      color: #2e241e;
+    }
+
+    .story-card {
+      max-width: 860px;
+      width: 100%;
+      background: #fffbf3;
+      backdrop-filter: blur(2px);
+      border-radius: 48px 48px 40px 40px;
+      box-shadow: 0 20px 40px rgba(120, 80, 20, 0.15), 0 6px 14px rgba(60, 40, 10, 0.08);
+      padding: 2.6rem 2.8rem 2.8rem;
+      transition: box-shadow 0.2s ease;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 1.6rem 1rem;
+      }
+      .story-card {
+        padding: 2rem 1.5rem 2.2rem;
+        border-radius: 32px;
+      }
+    }
+
+    .opening {
+      font-size: 1.9rem;
+      font-weight: 380;
+      letter-spacing: 0.04em;
+      color: #784e2e;
+      margin-bottom: 0.75rem;
+      border-left: 5px solid #e3a56c;
+      padding-left: 1.2rem;
+      line-height: 1.4;
+    }
+    .opening span {
+      background: #f7e7d4;
+      padding: 0.1rem 0.6rem;
+      border-radius: 40px;
+      font-weight: 450;
+      color: #653f23;
+    }
+
+    .intro-text {
+      margin-top: 1.2rem;
+      font-size: 1.06rem;
+      color: #3d2d21;
+    }
+    .intro-text p {
+      margin-bottom: 1.2rem;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem 1.6rem;
+      margin: 2rem 0 1.6rem;
+    }
+    @media (max-width: 540px) {
+      .feature-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+    }
+    .feature-item {
+      background: #f9ede0;
+      border-radius: 28px;
+      padding: 1rem 1.4rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      box-shadow: 0 3px 8px rgba(170, 120, 60, 0.08);
+      transition: transform 0.15s, background 0.2s;
+    }
+    .feature-item:hover {
+      background: #f4e2ce;
+      transform: scale(0.98);
+    }
+    .feature-icon {
+      font-size: 1.7rem;
+      line-height: 1.3;
+      flex-shrink: 0;
+      color: #b3703a;
+    }
+    .feature-text h4 {
+      font-size: 1.04rem;
+      font-weight: 560;
+      color: #4f3220;
+      margin-bottom: 0.1rem;
+    }
+    .feature-text p {
+      font-size: 0.94rem;
+      color: #5b4231;
+      margin: 0;
+    }
+
+    .scene-quote {
+      background: #fcf3e8;
+      border-radius: 30px;
+      padding: 1.3rem 1.8rem;
+      margin: 1.8rem 0 1.2rem;
+      font-style: normal;
+      border: 1px solid #eddcc9;
+    }
+    .scene-quote p {
+      font-size: 1.02rem;
+      color: #3b2b1d;
+    }
+    .scene-quote strong {
+      color: #7a4d28;
+      font-weight: 550;
+    }
+
+    .gentle-closing {
+      margin: 2rem 0 1rem;
+      padding: 1rem 0 0.2rem;
+      border-top: 2px dashed #dcc2ab;
+    }
+    .gentle-closing p {
+      font-size: 1rem;
+      color: #4d3728;
+    }
+
+    .link-holder {
+      display: inline;
+    }
+    a.main-link {
+      color: #8f5d32;
+      background: transparent;
+      text-decoration: none;
+      font-weight: 560;
+      border-bottom: 2px solid #dba878;
+      padding-bottom: 0.06rem;
+      transition: border-color 0.2s, color 0.2s;
+      border-radius: 0 0 6px 6px;
+    }
+    a.main-link:hover {
+      border-bottom-color: #7a4f2a;
+      color: #633d1e;
+      background: #f6e4d2;
+      padding: 0 0.15rem;
+    }
+
+    .tiny-faq {
+      margin-top: 2.2rem;
+      padding: 1.2rem 1.6rem;
+      background: #efe0cf;
+      border-radius: 30px;
+      font-size: 0.92rem;
+      color: #3f2d1d;
+    }
+    .tiny-faq details {
+      margin-bottom: 0.5rem;
+    }
+    .tiny-faq summary {
+      font-weight: 530;
+      cursor: pointer;
+      color: #654124;
+      padding: 0.15rem 0;
+    }
+    .tiny-faq summary::marker {
+      color: #b37b47;
+    }
+    .tiny-faq p {
+      margin: 0.4rem 0 0.2rem 1.2rem;
+      color: #4f3a28;
+    }
+
+    .foot-note {
+      margin-top: 2rem;
+      text-align: center;
+      font-size: 0.85rem;
+      color: #7d634b;
+      opacity: 0.7;
+      letter-spacing: 0.02em;
+    }
+  </style>
+</head>
+<body>
+  <div class="story-card">
+    <div class="opening">
+      <span>每次打开</span>，都像走进熟悉的街角。
+    </div>
+
+    <div class="intro-text">
+      <p>有些地方不需要花哨的招牌，只要门一直开着，光线刚刚好。对很多朋友来说，<a href="https://webzh-leyu.com.cn" class="main-link">乐鱼体育</a>就是这样一个角落——不吵不闹，但你知道它一直在。</p>
+      <p>页面的意义，有时不在于一瞬间的惊艳，而是每一次回头时，都能找到同样的安稳。从入口到内容，我们更在意那条路是否平整、清晰，让每个想了解的人可以自在地走走看看。</p>
+    </div>
+
+    <div class="feature-grid">
+      <div class="feature-item">
+        <div class="feature-icon">🕊️</div>
+        <div class="feature-text">
+          <h4>入口清爽</h4>
+          <p>无冗余跳转，直达想要的内容板块</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">🧭</div>
+        <div class="feature-text">
+          <h4>结构明了</h4>
+          <p>导航与布局遵从直觉，减少寻找负担</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">☕</div>
+        <div class="feature-text">
+          <h4>节奏自然</h4>
+          <p>信息密度适中，浏览像翻一本闲书</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">🌿</div>
+        <div class="feature-text">
+          <h4>温和克制</h4>
+          <p>不堆砌弹窗与强引导，把选择留给访客</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="scene-quote">
+      <p>“下午打开页面，没有刺眼的大促横幅，只有干净的列表和熟悉的入口。偶尔翻翻更新，就像散步时路过一面常走的墙，不急着做什么，却觉得踏实。” —— 一位常访问的朋友这样描述使用 <strong>乐鱼体育</strong> 的感受。</p>
+    </div>
+
+    <div class="gentle-closing">
+      <p>我们一直相信，一个好的页面不该让人感到紧张。它应该像一把旧椅子，不大不小，刚好可以坐下来看一看。如果你也喜欢这种不费力的浏览体验，不妨把 <a href="https://webzh-leyu.com.cn" class="main-link">乐鱼体育</a> 放在收藏夹里，偶尔路过，也是一种陪伴。</p>
+    </div>
+
+    <div class="tiny-faq">
+      <details>
+        <summary>页面主要提供什么？</summary>
+        <p>围绕体育内容整理的信息与入口，侧重稳定访问与清晰分类，方便快速找到感兴趣的部分。</p>
+      </details>
+      <details>
+        <summary>是否需要注册或下载？</summary>
+        <p>浏览页面内容无需注册，部分功能或延伸服务可能根据具体板块有所不同，页面本身保持轻量访问。</p>
+      </details>
+      <details>
+        <summary>移动端体验如何？</summary>
+        <p>页面针对手机与平板做了适配，卡片、字体间距均跟随屏幕自动调整，横竖屏都能舒适浏览。</p>
+      </details>
+    </div>
+
+    <div class="foot-note">
+      —— 故事仍在续写，页面始终如一。
+    </div>
+  </div>
+</body>
+</html>
