@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>澳门新葡京 · 站点介绍</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #0b0f14;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans', 'Helvetica Neue', sans-serif;
+      line-height: 1.7;
+      color: #1e2329;
+    }
+
+    /* ── 深色头图 ── */
+    .hero {
+      background: linear-gradient(145deg, #0d1c2b 0%, #162433 45%, #1f3142 100%);
+      color: #eaf0f6;
+      padding: 5rem 1.5rem 4rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, #c9a45c, transparent);
+    }
+
+    .hero h1 {
+      font-size: 2.8rem;
+      font-weight: 350;
+      letter-spacing: 2px;
+      margin-bottom: 0.75rem;
+    }
+
+    .hero p.lead {
+      max-width: 700px;
+      margin: 0.8rem auto 0;
+      font-size: 1.1rem;
+      color: #bccbd9;
+      font-weight: 320;
+      line-height: 1.6;
+    }
+
+    /* ── 浅色正文区 ── */
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 2.5rem 1.8rem;
+    }
+
+    .section {
+      background: #ffffff;
+      border-radius: 20px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.03);
+      padding: 2.4rem 2.2rem;
+      margin-bottom: 2.2rem;
+      transition: box-shadow 0.2s ease;
+    }
+
+    .section:hover {
+      box-shadow: 0 8px 28px rgba(0, 0, 0, 0.06);
+    }
+
+    .section h2 {
+      font-size: 1.6rem;
+      font-weight: 420;
+      margin-bottom: 1rem;
+      color: #1b2a3c;
+      border-left: 4px solid #c9a45c;
+      padding-left: 1rem;
+    }
+
+    .section p {
+      margin-bottom: 0.9rem;
+      color: #2d3745;
+    }
+
+    /* ── 特点列表 ── */
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1.3rem;
+      margin: 1.5rem 0 0.5rem;
+    }
+
+    .feature-item {
+      background: #f6f9fd;
+      padding: 1.2rem 1rem;
+      border-radius: 14px;
+      border-left: 3px solid #c9a45c;
+      font-size: 0.95rem;
+    }
+
+    .feature-item strong {
+      display: block;
+      color: #0f1d2e;
+      font-weight: 540;
+      margin-bottom: 0.3rem;
+    }
+
+    .feature-item span {
+      color: #3b4b5e;
+    }
+
+    /* ── 强调色链接 ── */
+    a {
+      color: #b8873a;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    a:hover {
+      color: #8f6d2c;
+      border-bottom-color: #b8873a;
+    }
+
+    /* ── FAQ 摘要风格 ── */
+    .faq-mini {
+      background: #f3f7fc;
+      border-radius: 16px;
+      padding: 1.6rem 1.8rem;
+      margin-bottom: 2.2rem;
+    }
+
+    .faq-mini details {
+      margin-bottom: 0.8rem;
+      border-bottom: 1px solid #dbe3ed;
+      padding-bottom: 0.8rem;
+    }
+
+    .faq-mini details:last-of-type {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .faq-mini summary {
+      font-weight: 500;
+      cursor: pointer;
+      color: #1b2a3c;
+      padding: 0.25rem 0;
+      font-size: 1rem;
+    }
+
+    .faq-mini summary::-webkit-details-marker {
+      color: #b8873a;
+    }
+
+    .faq-mini p {
+      margin: 0.6rem 0 0.2rem;
+      font-size: 0.93rem;
+      color: #364453;
+    }
+
+    /* ── 温和结尾 ── */
+    .gentle-footer {
+      text-align: center;
+      padding: 2rem 0 1rem;
+      color: #5c6f84;
+      font-size: 0.9rem;
+      border-top: 1px solid #e4eaf1;
+      margin-top: 0.2rem;
+    }
+
+    .gentle-footer p {
+      margin: 0.2rem 0;
+    }
+
+    /* ── 响应式细节 ── */
+    @media (max-width: 640px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+      .hero p.lead {
+        font-size: 1rem;
+      }
+      .section {
+        padding: 1.6rem 1.2rem;
+      }
+      .feature-grid {
+        grid-template-columns: 1fr;
+      }
+      .faq-mini {
+        padding: 1.2rem;
+      }
+    }
+
+    @media (min-width: 768px) {
+      .hero {
+        padding: 6rem 2rem 4.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 深色头图 -->
+  <header class="hero">
+    <h1>澳门新葡京</h1>
+    <p class="lead">
+      一个专注呈现澳门综合度假地资讯的站点，从地标建筑到服务脉络，为访客提供清晰、可信的信息参考。
+    </p>
+  </header>
+
+  <!-- 正文区 -->
+  <main class="container">
+
+    <!-- 承接段落：站点介绍与可信说明 -->
+    <section class="section">
+      <h2>关于这个站点</h2>
+      <p>
+        <a href="https://index--grandlisboa.com">澳门新葡京</a> 并非官方预订或票务平台，而是一个以信息整合与客观介绍为出发点的参考网站。站内内容涵盖酒店设施、娱乐项目、餐饮选择及周边环境，所有资料均来自公开渠道并经过交叉核实，尽力确保时效与准确。
+      </p>
+      <p>
+        站点由长期关注澳门旅游动态的团队维护，不提供直接预订、购票或博彩入口。我们相信，只有剥离营销滤镜，才能让访客更冷静地判断目的地是否适合自己。因此页面中不包含“立即预定”“限时优惠”等诱导成分，只做如实陈述与结构化的信息呈现。
+      </p>
+    </section>
+
+    <!-- 特点列表（故事叙述承接） -->
+    <section class="section">
+      <h2>内容特点</h2>
+      <div class="feature-grid">
+        <div class="feature-item">
+          <strong>公开资料整合</strong>
+          <span>所有数据来自官方公开信息、新闻稿及实地考察笔记，拒绝二手改写与夸大宣传。</span>
+        </div>
+        <div class="feature-item">
+          <strong>结构化分类</strong>
+          <span>按住宿、餐饮、交通、娱乐、会务等维度分层展示，方便快速定位所需内容。</span>
+        </div>
+        <div class="feature-item">
+          <strong>时效性标注</strong>
+          <span>每篇文章末尾标注最后核实日期，过时内容会被标识或下架，避免误导。</span>
+        </div>
+        <div class="feature-item">
+          <strong>无营销暗线</strong>
+          <span>不嵌入推广链接、不追踪点击、不收集访客偏好，完全以信息价值为衡量标准。</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 场景 / 实用提示（故事推进） -->
+    <section class="section">
+      <h2>适合哪些人阅读</h2>
+      <p>
+        计划初次探访澳门、希望提前了解度假村布局的自由行游客；对酒店餐饮及公共空间感兴趣、需要真实照片与平面图参考的旅行研究者；以及想避开过度推销页面、只看核心事实的中立信息需求者。
+      </p>
+      <p>
+        站内不设论坛或评论区，但每页末均附有内容反馈邮箱（非自动化），如果发现事实错误或链接失效，欢迎来信指正。我们会在 2 个工作日内核实并更新。
+      </p>
+    </section>
+
+    <!-- FAQ 摘要 -->
+    <div class="faq-mini">
+      <details>
+        <summary>站点是否与澳门新葡京官方有关？</summary>
+        <p>完全无关。这是一个独立的第三方信息站，不隶属于任何集团或管理机构。官方渠道请认准域名与授权标识。</p>
+      </details>
+      <details>
+        <summary>内容多久更新一次？</summary>
+        <p>主要页面每季度全面复核一次，重大变动（如设施关闭、品牌更换）会在得知后 7 天内更新。</p>
+      </details>
+      <details>
+        <summary>如何确认信息可靠？</summary>
+        <p>我们优先采用一手来源：政府公报、官方新闻稿、实地拍摄。对二手信息均标注来源链接，方便读者自行比对。</p>
+      </details>
+    </div>
+
+    <!-- 温和结尾 -->
+    <div class="gentle-footer">
+      <p>以克制的方式整理，以负责的态度呈现。</p>
+      <p>本站所有内容仅供参考，具体服务以现场公示为准。</p>
+      <p style="margin-top: 0.6rem; font-size: 0.85rem; color: #7c8da3;">最后更新 · 2025 年 5 月</p>
+    </div>
+
+  </main>
+</body>
+</html>
