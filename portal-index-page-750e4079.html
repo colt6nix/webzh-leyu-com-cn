@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>简明指南 · ng28</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      background: linear-gradient(145deg, #fce9d8 0%, #f8d5b5 40%, #f3c49a 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1.5rem;
+      line-height: 1.6;
+      color: #3b2e22;
+    }
+    .card {
+      background-color: #fffbf8;
+      border-radius: 40px 40px 28px 28px;
+      box-shadow: 0 20px 36px rgba(130, 80, 40, 0.12), 0 6px 12px rgba(160, 100, 50, 0.06);
+      max-width: 920px;
+      width: 100%;
+      padding: 2.8rem 2.8rem 2.2rem;
+      margin: 1rem 0;
+      transition: box-shadow 0.2s ease;
+    }
+    .hero {
+      text-align: center;
+      margin-bottom: 2.2rem;
+    }
+    .hero h1 {
+      font-size: 2.8rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      background: linear-gradient(135deg, #8b5a3a, #b47b57);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 0.5rem;
+    }
+    .hero p {
+      font-size: 1.25rem;
+      color: #5c4637;
+      background: rgba(240, 215, 190, 0.5);
+      display: inline-block;
+      padding: 0.2rem 1.2rem;
+      border-radius: 40px;
+      font-weight: 450;
+    }
+    .tagline {
+      font-size: 1.15rem;
+      margin-top: 1rem;
+      color: #4f3b2b;
+      max-width: 640px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .section-title {
+      font-weight: 550;
+      font-size: 1.4rem;
+      color: #6e4c34;
+      margin: 2.2rem 0 1rem 0;
+      border-left: 5px solid #cdaa82;
+      padding-left: 0.9rem;
+    }
+    .grid-benefits {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.6rem;
+      margin-top: 0.6rem;
+    }
+    .benefit-item {
+      background: #fcf4ec;
+      border-radius: 24px;
+      padding: 1.3rem 1.2rem;
+      transition: background 0.15s;
+    }
+    .benefit-item h3 {
+      font-size: 1.1rem;
+      font-weight: 550;
+      color: #7d5a3d;
+      margin-bottom: 0.4rem;
+    }
+    .benefit-item p {
+      font-size: 0.96rem;
+      color: #4e3c2e;
+    }
+    .explain-block {
+      background: #faf0e6;
+      border-radius: 28px;
+      padding: 1.6rem 1.8rem;
+      margin: 1.8rem 0;
+    }
+    .explain-block p {
+      margin-bottom: 1rem;
+    }
+    .explain-block p:last-child {
+      margin-bottom: 0;
+    }
+    .faq-mini {
+      margin: 2rem 0 1.2rem;
+    }
+    .faq-item {
+      border-bottom: 1px solid #e5d3c2;
+      padding: 0.9rem 0;
+    }
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+    .faq-q {
+      font-weight: 550;
+      color: #6e4a30;
+      margin-bottom: 0.2rem;
+    }
+    .faq-a {
+      color: #3f2f22;
+      font-size: 0.96rem;
+      padding-left: 0.5rem;
+    }
+    .faq-a a {
+      color: #996f4b;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px dashed #c9aa8a;
+    }
+    .faq-a a:hover {
+      color: #6e441f;
+      border-bottom-style: solid;
+    }
+    .link-area {
+      text-align: center;
+      margin: 2rem 0 0.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid #eddccd;
+    }
+    .link-area p {
+      font-size: 1rem;
+      color: #4a392a;
+    }
+    .link-area a {
+      background: #e9d3bf;
+      color: #3e2b1d;
+      text-decoration: none;
+      font-weight: 550;
+      padding: 0.45rem 1.4rem;
+      border-radius: 50px;
+      display: inline-block;
+      margin: 0.2rem 0.3rem;
+      transition: background 0.15s, transform 0.1s;
+      font-size: 0.95rem;
+      letter-spacing: 0.3px;
+    }
+    .link-area a:hover {
+      background: #dbbca1;
+      transform: scale(1.02);
+    }
+    .inline-link {
+      color: #9b6f4b;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px dashed #b68f6d;
+    }
+    .inline-link:hover {
+      color: #724b2b;
+      border-bottom-style: solid;
+    }
+    .footer-note {
+      text-align: center;
+      font-size: 0.85rem;
+      color: #6b5542;
+      margin-top: 1.8rem;
+      opacity: 0.7;
+    }
+    @media (max-width: 640px) {
+      body {
+        padding: 1rem 0.8rem;
+      }
+      .card {
+        padding: 2rem 1.2rem 1.5rem;
+        border-radius: 32px;
+      }
+      .hero h1 {
+        font-size: 2.1rem;
+      }
+      .grid-benefits {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+      .benefit-item {
+        padding: 1rem;
+      }
+      .section-title {
+        font-size: 1.25rem;
+      }
+      .explain-block {
+        padding: 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="card">
+  <div class="hero">
+    <h1>简明访问指南</h1>
+    <p>ng28 · 引导与了解</p>
+    <div class="tagline">
+      一次顺畅的访问，从理解界面开始。我们为你梳理了导航提示与常见注意点。
+    </div>
+  </div>
+
+  <!-- 优势区 / 特点 -->
+  <h2 class="section-title">为什么先了解这些</h2>
+  <div class="grid-benefits">
+    <div class="benefit-item">
+      <h3>🌿 布局清晰</h3>
+      <p>入口与功能分区一目了然，减少反复寻找的麻烦。</p>
+    </div>
+    <div class="benefit-item">
+      <h3>📌 信息层次分明</h3>
+      <p>重要提醒、状态提示都放在醒目位置，不易遗漏。</p>
+    </div>
+    <div class="benefit-item">
+      <h3>🧭 路径预知</h3>
+      <p>进入前了解主要流程，操作时更从容。</p>
+    </div>
+    <div class="benefit-item">
+      <h3>🔐 环境提示</h3>
+      <p>留意页面中的通知与状态条，保持访问顺畅。</p>
+    </div>
+  </div>
+
+  <!-- 说明区：从简明指南和访问提醒的角度 -->
+  <div class="explain-block">
+    <p><strong>访问前的简单准备</strong><br>
+    首次接触时，建议先熟悉页面顶部的导航分类与侧边栏提示。大部分常用功能集中在首页中部，按卡片分组排列。如果遇到加载或显示异常，可以尝试刷新或检查网络连接。</p>
+    <p><strong>关于 <a href="https://portal-index-ng28.com" class="inline-link">ng28</a> 的入口说明</strong><br>
+    在平台内，主要操作路径通常以图标或文字按钮呈现。部分页面包含可折叠的引导信息，点击后展开详细步骤。若需要快速返回总览，可使用左上角的返回链接。</p>
+    <p><strong>提醒：</strong> 请留意页面顶部的系统公告区域，临时维护或更新会提前显示。密码与安全设置建议定期检查，个人数据注意保护。</p>
+  </div>
+
+  <!-- FAQ 摘要 -->
+  <h2 class="section-title">常见关注点 · 摘要</h2>
+  <div class="faq-mini">
+    <div class="faq-item">
+      <div class="faq-q">❓ 页面加载后显示不全？</div>
+      <div class="faq-a">尝试等几秒让资源加载，或清理浏览器缓存后重试。若持续异常，可参考平台内的帮助卡片。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">❓ 如何快速找到某功能？</div>
+      <div class="faq-a">多数页面顶部有搜索或筛选栏，输入关键词即可定位。也可以按模块名称查找，如「ng28」相关板块通常归类在导航第二栏。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">❓ 界面语言或风格能否调整？</div>
+      <div class="faq-a">部分偏好设置位于个人菜单中，包括界面色调与语言切换（若支持）。具体以实际页面选项为准。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">❓ 联系与反馈方式</div>
+      <div class="faq-a">页面底部通常设有「帮助中心」或「意见反馈」链接，也可以通过客服入口提交问题。建议先查看已有 <a href="https://portal-index-ng28.com">ng28</a> 常见问题索引。</div>
+    </div>
+  </div>
+
+  <!-- 底部链接区（按钮感） -->
+  <div class="link-area">
+    <p>想进一步了解平台结构？</p>
+    <a href="https://portal-index-ng28.com">ng28</a>
+    <a href="#">浏览指引</a>
+    <a href="#">常见问题</a>
+    <p style="margin-top:0.8rem; font-size:0.9rem; color:#5d4837;">无诱导性承诺 · 信息仅供参考</p>
+  </div>
+
+  <div class="footer-note">
+    <span>© 简明访问页面 · 内容仅供了解</span>
+  </div>
+</div>
+</body>
+</html>
